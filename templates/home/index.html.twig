@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <main>
+
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="overlay-image" style="background-image: url('images/slide.jpg');"></div>
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Le raccourcisseur d'URL ultime.</h1>
+                            <p>Un outil puissant conçu pour renforcer et protéger votre marque tout en facilitant son développement.</p>
+
+                            {% if is_granted('IS_ANONYMOUS') %}
+                                <p><a class="btn btn-lg btn-primary" style="border-radius: 20px; background-color: #171717; border: 1px solid black" href="#">Inscription</a></p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <img loading="lazy" width="320" height="180" src="{{ asset('images/illustration-1.jpg') }}" />
+                    <h2 class="fw-bold">Fait confiance</h2>
+                    <p class="text-start">Plus vos communications obtiennent de clics, plus votre marque est reconnue et fait confiance aux consommateurs. Cela entraîne alors encore plus d'engagement avec vos liens.</div>
+
+                <div class="col-lg-4">
+                    <img loading="lazy" width="320" height="180" src="{{ asset('images/illustration-2.jpg') }}" />
+
+                    <h2 class="fw-bold">Analyser en détail </h2>
+                    <p class="text-start">Grâce aux statistiques sur vos liens, vous obtenez des informations essentielles sur l'engagement de votre audience. Cela vous permet de prendre de meilleures décisions sur le contenu et les communications de votre équipe.</p>
+
+                </div><!-- /.col-lg-4 -->
+
+                <div class="col-lg-4">
+                    <img loading="lazy" width="320" height="180" src="{{ asset('images/illustration-3.png') }}" />
+                    <h2 class="fw-bold">Mettre en place</h2>
+                    <p class="text-start">Valorisez votre contenu en activant l'auto-branding, une fonctionnalité qui préserve la visibilité de votre marque dans tous les liens redirigés vers votre site Web. Cela vous permettra d'en apprendre davantage sur la façon dont votre contenu est consommé.</p>
+
+                </div>
+
+            </div><!-- /.row -->
+
+
+            <hr class="featurette-divider">
+
+
+        </div><!-- /.container -->
+
+        <section class="col col-lg-10 mx-auto mb-5">
+            <div class="card" id="shortenCard">
+                <div class="card-body bg-light">
+                    <form id="shortenForm">
+                        <div class="col">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-lg" name="url" id="url" placeholder="Votre adresse que vous souhaitez réduire" autocomplete="off" required>
+                                <button type="submit" class="btn btn-lg btn-success" style="background-color: black" id="btnShortenUrl">Réduire l'URL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p style="margin-left: 500px">&copy; MinifUrl 2024</p>
+        </footer>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}
